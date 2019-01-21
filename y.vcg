@@ -1,0 +1,163 @@
+graph: {
+	display_edge_labels:	yes
+	priority_phase:	yes
+	port_sharing:	no
+	crossing_weight:	median
+	splines:	yes
+	node: {
+		title:	"0"
+		label:	"state  0\n $accept -> . Program $end"
+	}
+	edge: {
+		sourcename:	"0"
+		targetname:	"1"
+		label:	"PROGRAMnum"
+		color:	blue
+		textcolor:	black
+	}
+	edge: {
+		sourcename:	"0"
+		targetname:	"2"
+		label:	"Program"
+		color:	green
+		textcolor:	black
+	}
+	node: {
+		title:	"1"
+		label:	"state  1\n Program -> PROGRAMnum . IDnum SEMInum ClassDeclMain"
+	}
+	edge: {
+		sourcename:	"1"
+		targetname:	"3"
+		label:	"IDnum"
+		color:	blue
+		textcolor:	black
+	}
+	node: {
+		title:	"2"
+		label:	"state  2\n $accept -> Program . $end"
+	}
+	edge: {
+		sourcename:	"2"
+		targetname:	"4"
+		label:	"$end"
+		color:	blue
+		textcolor:	black
+	}
+	node: {
+		title:	"3"
+		label:	"state  3\n Program -> PROGRAMnum IDnum . SEMInum ClassDeclMain"
+	}
+	edge: {
+		sourcename:	"3"
+		targetname:	"5"
+		label:	"SEMInum"
+		color:	blue
+		textcolor:	black
+	}
+	node: {
+		title:	"4"
+		label:	"state  4\n $accept -> Program $end ."
+	}
+	node: {
+		title:	"5"
+		label:	"state  5\n Program -> PROGRAMnum IDnum SEMInum . ClassDeclMain"
+	}
+	edge: {
+		sourcename:	"5"
+		targetname:	"6"
+		label:	"CLASSnum"
+		color:	blue
+		textcolor:	black
+	}
+	edge: {
+		sourcename:	"5"
+		targetname:	"7"
+		label:	"ClassDeclMain"
+		color:	green
+		textcolor:	black
+	}
+	edge: {
+		sourcename:	"5"
+		targetname:	"8"
+		label:	"ClassDecl"
+		color:	green
+		textcolor:	black
+	}
+	node: {
+		title:	"6"
+		label:	"state  6\n ClassDecl -> CLASSnum . IDnum ClassBody"
+	}
+	edge: {
+		sourcename:	"6"
+		targetname:	"9"
+		label:	"IDnum"
+		color:	blue
+		textcolor:	black
+	}
+	node: {
+		title:	"7"
+		label:	"state  7\n Program -> PROGRAMnum IDnum SEMInum ClassDeclMain .\n ClassDeclMain -> ClassDeclMain . ClassDecl"
+	}
+	backedge: {
+		sourcename:	"7"
+		targetname:	"6"
+		label:	"CLASSnum"
+		color:	blue
+		textcolor:	black
+	}
+	edge: {
+		sourcename:	"7"
+		targetname:	"10"
+		label:	"ClassDecl"
+		color:	green
+		textcolor:	black
+	}
+	node: {
+		title:	"8"
+		label:	"state  8\n ClassDeclMain -> ClassDecl ."
+	}
+	node: {
+		title:	"9"
+		label:	"state  9\n ClassDecl -> CLASSnum IDnum . ClassBody"
+	}
+	edge: {
+		sourcename:	"9"
+		targetname:	"11"
+		label:	"LBRACEnum"
+		color:	blue
+		textcolor:	black
+	}
+	edge: {
+		sourcename:	"9"
+		targetname:	"12"
+		label:	"ClassBody"
+		color:	green
+		textcolor:	black
+	}
+	node: {
+		title:	"10"
+		label:	"state 10\n ClassDeclMain -> ClassDeclMain ClassDecl ."
+	}
+	node: {
+		title:	"11"
+		label:	"state 11\n ClassBody -> LBRACEnum . RBRACEnum"
+	}
+	edge: {
+		sourcename:	"11"
+		targetname:	"13"
+		label:	"RBRACEnum"
+		color:	blue
+		textcolor:	black
+	}
+	node: {
+		title:	"12"
+		label:	"state 12\n ClassDecl -> CLASSnum IDnum ClassBody ."
+	}
+	node: {
+		title:	"13"
+		label:	"state 13\n ClassBody -> LBRACEnum RBRACEnum ."
+	}
+
+
+}
